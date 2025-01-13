@@ -1,0 +1,119 @@
+# Akash Bharadwaj
+# 1BM23AI013
+# 3A
+
+
+
+
+
+# # 1. Balanced Brackets
+
+n = int(input())
+l = []
+for i in range(n):
+    st = input()
+    l.append(st)
+
+d = {"{": "}", "[": "]", "(": ")"}
+d = {"}": "{", "]": "[", ")": "("}
+
+
+def isBalanced(s):
+    l1 = []
+    for i in s:
+        if len(l1) == 0:
+            l1.append(i)
+
+        elif i == ")" or i == "]" or i == "}":
+            if d[i] == l1[-1]:
+                l1.pop()
+            else:
+                return "NO"
+
+        else:
+            l1.append(i)
+
+    if not l1:
+        return "YES"
+    else:
+        return "NO"
+
+
+for s in l:
+    print(isBalanced(s))
+
+
+
+
+# 2.Queue using two stacks
+
+n = int(input())
+
+s1 = []
+s2 = []
+
+for i in range(n):
+
+    s = input()
+
+    if len(s) > 1:
+        x, y = s.split()
+        s1.append(int(y))
+
+    elif s == "2":
+        ele = s1.pop(0)
+        s2.append(ele)
+
+    else:
+        print(s1[0])
+
+
+
+
+
+# 3. Game of Two Stacks
+
+def stack_game():
+    
+    s = input().split()
+    n, m, maxsum = [int(i) for i in s]
+
+    s1 = input().split()
+    a = [int(i) for i in s1]
+
+    s2 = input().split()
+    b = [int(i) for i in s2]
+
+    
+    total = 0
+    count = 0
+
+     i = 0
+    while i < n and total + a[i] <= maxsum:
+        total += a[i]
+        i += 1
+
+    count = i  
+    j = 0  
+
+  
+    while j < m and (i > 0 or total + b[j] <= maxsum):
+        total += b[j]
+        j += 1
+
+        
+        while total > maxsum and i > 0:
+            i -= 1
+            total -= a[i]
+
+       
+        if total <= maxsum:
+            count = max(count, i + j)
+
+    return count
+
+
+
+g = int(input())
+for i in range(g):
+    print(stack_game())
