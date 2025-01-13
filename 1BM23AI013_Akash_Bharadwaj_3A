@@ -6,7 +6,7 @@
 
 
 
-# # 1. Balanced Brackets
+# # 1. BALANCED BRACKETS
 
 n = int(input())
 l = []
@@ -45,7 +45,8 @@ for s in l:
 
 
 
-## 2.Queue using two stacks
+
+## 2.QUEUE USING TWO STACKS
 
 n = int(input())
 
@@ -71,7 +72,8 @@ for i in range(n):
 
 
 
-## 3. Game of Two Stacks
+
+## 3. GAME OF TWO STACKS
 
 def stack_game():
     
