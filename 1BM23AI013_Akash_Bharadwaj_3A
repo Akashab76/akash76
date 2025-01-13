@@ -8,37 +8,38 @@
 
 # # 1. BALANCED BRACKETS
 
-n = int(input())
-l = []
+n=int(input())
+l=[]
 for i in range(n):
-    st = input()
+    st=input()
     l.append(st)
-
-d = {"{": "}", "[": "]", "(": ")"}
-d = {"}": "{", "]": "[", ")": "("}
-
-
+ 
+d={ "{" : "}"  , "[" : "]" , "(" : ")" }
+d={ "}" : "{"  , "]" : "[" , ")" : "(" }
+ 
 def isBalanced(s):
-    l1 = []
-    for i in s:
-        if len(l1) == 0:
-            l1.append(i)
-
-        elif i == ")" or i == "]" or i == "}":
-            if d[i] == l1[-1]:
-                l1.pop()
+    
+        l1=[]
+        for i in s:
+            if len(l1)==0:
+                l1.append(i)
+                
+            elif i==")" or i=="]" or i=="}":
+                if d[i]==l1[-1]:
+                    l1.pop()
+                else:
+                    return "NO"
+                
             else:
-                return "NO"
-
+                l1.append(i)
+            
+        if not l1:
+            return "YES"
         else:
-            l1.append(i)
-
-    if not l1:
-        return "YES"
-    else:
-        return "NO"
-
-
+            return "NO"
+ 
+        
+   
 for s in l:
     print(isBalanced(s))
 
@@ -90,7 +91,8 @@ def stack_game():
     total = 0
     count = 0
 
-     i = 0
+    
+    i = 0
     while i < n and total + a[i] <= maxsum:
         total += a[i]
         i += 1
@@ -117,5 +119,6 @@ def stack_game():
 
 
 g = int(input())
-for i in range(g):
+for _ in range(g):
     print(stack_game())
+
