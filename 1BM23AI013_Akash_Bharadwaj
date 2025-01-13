@@ -45,7 +45,7 @@ for s in l:
 
 
 
-# 2.Queue using two stacks
+## 2.Queue using two stacks
 
 n = int(input())
 
@@ -71,7 +71,7 @@ for i in range(n):
 
 
 
-# 3. Game of Two Stacks
+## 3. Game of Two Stacks
 
 def stack_game():
     
